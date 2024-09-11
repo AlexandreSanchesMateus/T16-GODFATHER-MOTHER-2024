@@ -7,7 +7,10 @@ public class MailTask : MonoBehaviour
     /*private List<Mail> _mails;
     private Mail _currentMail;*/
 
+    [SerializeField]
     private float backspaceFrk = 0.2f;
+    [SerializeField]
+    private int MaxStackableMail = 3;
 
     public void CreateNewMail()
     {

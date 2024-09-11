@@ -339,13 +339,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 762100520}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.9044566, z: -0.42656565, w: 0}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 9}
   m_LocalScale: {x: 1.5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50.5, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
 --- !u!114 &762100525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,9 +358,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d85eff9dbde124b9d67d288ebee83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayTrs: {fileID: 0}
-  mailScript: {fileID: 0}
-  popupScript: {fileID: 0}
+  mailScript: {fileID: 1814114762}
+  popupScript: {fileID: 1987451127}
+  mailReceivedFrequency: 10
+  mailReceivedRandomness: 5
+  popupFrequency: 20
+  popupRandomness: 5
 --- !u!1 &1166910061
 GameObject:
   m_ObjectHideFlags: 0
@@ -687,7 +690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b8aed10c6761194d9d9c5d6e449e923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SCO_Ref: {fileID: 0}
+  SCO_Ref: {fileID: 11400000, guid: 75622c6568985ca40b4623e4f085535b, type: 2}
   turnDuration: 1
   OnLeftState:
     m_PersistentCalls:
@@ -790,6 +793,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37202e7f92e87cf43a4ae6e951a39da3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backspaceFrk: 0.2
+  MaxStackableMail: 3
 --- !u!1 &1895920623
 GameObject:
   m_ObjectHideFlags: 0
@@ -966,6 +971,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57b4e7e803e77049832cc71b7dd479f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxStackblePopups: 9
+  randomness: 4
+  popupPrefab: {fileID: 0}
 --- !u!1 &2108939259
 GameObject:
   m_ObjectHideFlags: 0

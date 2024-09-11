@@ -12,7 +12,7 @@ public class Cumputer : Task
 
     [SerializeField, BoxGroup("Mail Settings")]
     private float mailReceivedFrequency = 10f;
-    [SerializeField, BoxGroup("Popup Settings")]
+    [SerializeField, BoxGroup("Mail Settings")]
     private float mailReceivedRandomness = 5f;
 
     [SerializeField, BoxGroup("Popup Settings")]
@@ -57,21 +57,20 @@ public class Cumputer : Task
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             // Remove Popup
-            Debug.Log("Remove Popup");
+            // Debug.Log("Remove Popup");
             popupScript.CloseOnePopup();
         }
         else if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
             // Enter for mail
-            Debug.Log("Enter");
+            // Debug.Log("Enter");
             mailScript.SendMail();
         }
-
-        if (Input.anyKey)
+        else if (Input.anyKey)
         {
             if (Input.GetKey(KeyCode.Backspace))
             {
-                Debug.Log("Back");
+                // Debug.Log("Back");
                 mailScript.RemoveLastKeystrok();
             }
             else

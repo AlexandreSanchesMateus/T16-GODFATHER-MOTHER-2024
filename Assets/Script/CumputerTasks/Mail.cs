@@ -2,22 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using DG.Tweening;
+using NaughtyAttributes;
 
 public class Mail : MonoBehaviour
 {
-    [SerializeField]
-    private List<string> destinationNames = new List<string>();
-    [SerializeField]
-    private List<string> subjectNames = new List<string>();
-
-    [SerializeField]
+    [SerializeField, BoxGroup("Init")]
     private TextMeshProUGUI destinataireTxt;
-    [SerializeField]
+    [SerializeField, BoxGroup("Init")]
     private TextMeshProUGUI subjectTxt;
-    [SerializeField]
+    [SerializeField, BoxGroup("Init")]
     private TextMeshProUGUI corpTxt;
-    [SerializeField]
+    [SerializeField, BoxGroup("Init")]
     private TextMeshProUGUI nbLetterTxt;
+
+    [SerializeField, Foldout("Déco")]
+    private List<string> destinationNames = new List<string>();
+    [SerializeField, Foldout("Déco")]
+    private List<string> subjectNames = new List<string>();
 
     private int targetLetterNb;
 
@@ -47,7 +49,21 @@ public class Mail : MonoBehaviour
 
     public bool Send()
     {
-        Destroy(gameObject);
-        return corpTxt.text.Length == targetLetterNb;
+        bool valid = corpTxt.text.Length == targetLetterNb;
+
+        if (valid)
+        {
+            Sequence validSequence = DOTween.Sequence();
+            validSequence.Append(transform.DOLocalMoveY(1200, 0.45f).SetEase(Ease.InBack));
+            validSequence.AppendCallback(() => Destroy(gameObject));
+        }
+        else
+        {
+            transform.parent.DOKill();
+            transform.parent.transform.localPosition = Vector3.zero;
+            transform.parent.DOPunchPosition(new Vector3(200, 0, 0), 0.6f);
+        }
+
+        return valid;
     }
 }

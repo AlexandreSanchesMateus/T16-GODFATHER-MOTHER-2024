@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: JE NE SAIS PAS
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -199,12 +199,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Eminuit autem inter humilia supergressa iam impotentia fines mediocrium
-    delictorum nefanda Clematii cuiusdam Alexandrini nobilis mors repentina; cuius
-    socrus cum misceri sibi generum, flagrans eius amore, non impetraret, ut ferebatur,
-    per palatii pseudothyrum introducta, oblato pretioso reginae monili id adsecuta
-    est, ut ad Honoratum tum comitem orientis formula missa letali omnino scelere
-    nullo contactus idem Clematius nec hiscere nec loqui permissus occideretur.
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -365,8 +360,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc2fc9cc683d0784799e4f43b9a50b45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destinationNames: []
-  subjectNames: []
+  destinationNames:
+  - Boss
+  - Alex
+  - Romain
+  - Enzo
+  - Juju
+  subjectNames:
+  - 
   destinataireTxt: {fileID: 7213821823897601140}
   subjectTxt: {fileID: 3202034776746575540}
   corpTxt: {fileID: 178408257707224534}
@@ -570,7 +571,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: BOSS
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

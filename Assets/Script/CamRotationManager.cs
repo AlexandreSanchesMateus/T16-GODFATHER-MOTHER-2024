@@ -7,9 +7,12 @@ using NaughtyAttributes;
 
 public class CamRotationManager : MonoBehaviour
 {
-    private CamRotation mCurrentState = CamRotation.MIDDLE;
+    private ECamRotState mCurrentState = ECamRotState.MIDDLE;
+    private ECamRotState mLastState = ECamRotState.MIDDLE;
     private int mcurrentRotation = 0;
 
+    [SerializeField]
+    private SCO_Tasks SCO_Ref;
     [SerializeField]
     private float turnDuration = 1f;
 
@@ -20,7 +23,7 @@ public class CamRotationManager : MonoBehaviour
     [SerializeField, Foldout("Events")]
     private UnityEvent OnRightState;
 
-    enum CamRotation
+    enum ECamRotState
     {
         LEFT = 0,
         MIDDLE = 1,
@@ -42,39 +45,83 @@ public class CamRotationManager : MonoBehaviour
 
     public void RotateCamLeft()
     {
-        if (mCurrentState == CamRotation.LEFT)
+        if (mCurrentState == ECamRotState.LEFT)
             return;
 
         mcurrentRotation = mcurrentRotation - 90;
         --mCurrentState;
         transform.DORotate(new Vector3(0, mcurrentRotation, 0), turnDuration);
-        TriggerEvent();
+        TriggerEvents();
     }
 
     public void RotateCamRight()
     {
-        if (mCurrentState == CamRotation.RIGHT)
+        if (mCurrentState == ECamRotState.RIGHT)
             return;
 
         mcurrentRotation = mcurrentRotation + 90;
         ++mCurrentState;
         transform.DORotate(new Vector3(0, mcurrentRotation, 0), turnDuration);
-        TriggerEvent();
+        TriggerEvents();
     }
 
-    private void TriggerEvent()
+    private void TriggerEvents()
     {
+        // Désactiver
+        PanelAction(mLastState, false);
+        // Activer
+        PanelAction(mCurrentState, true);
+
+        // ReInit
+        mLastState = mCurrentState;
+
+        // Unity Events
         switch (mCurrentState)
         { 
-            case CamRotation.LEFT:
+            case ECamRotState.LEFT:
                 OnLeftState.Invoke();
                 break;
-            case CamRotation.MIDDLE:
+            case ECamRotState.MIDDLE:
                 OnMiddleState.Invoke();
                 break;
-            case CamRotation.RIGHT:
+            case ECamRotState.RIGHT:
                 OnRightState.Invoke();
                 break;
+        }
+    }
+
+    // Action on Panel
+    private void PanelAction(ECamRotState rot, bool active)
+    {
+        if (!SCO_Ref)
+        {
+            Debug.LogError("Aucune référence à SCO_Tasks.");
+            return;
+        }
+
+        switch (rot)
+        {
+            case ECamRotState.LEFT:
+                TaskAction(SCO_Ref.LeftTasks, active);
+                break;
+            case ECamRotState.MIDDLE:
+                TaskAction(SCO_Ref.MiddleTasks, active);
+                break;
+            case ECamRotState.RIGHT:
+                TaskAction(SCO_Ref.RightTasks, active);
+                break;
+        }
+    }
+
+    // Action on tasks
+    private void TaskAction(List<Task> list, bool active)
+    {
+        foreach (Task t in list)
+        {
+            if (active)
+                t.Activate();
+            else
+                t.Deactivate();
         }
     }
 }

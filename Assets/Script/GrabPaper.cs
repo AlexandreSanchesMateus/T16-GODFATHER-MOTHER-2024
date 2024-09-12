@@ -5,47 +5,110 @@ using UnityEngine;
 
 public class GrabPaper : MonoBehaviour
 {
-
     [SerializeField]
     private float grabDuration = 2f;
     [SerializeField]
     LayerMask paperLayer;
 
     public GameObject Paper;
-    public GameObject CamGrabPoint;
+    public Transform CamGrabPoint;
 
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private Transform targetPosition;
 
-    void Update()
-    {
-        Vector3 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Debug.DrawRay(worldPos, new Vector3(0, 0, 1) * 50000, Color.red);
+    [SerializeField]
+    private float throwForce = 2f;
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            LeftDownCorner();
+    private bool isHoldingPaper = false;
+    private bool isPlaced = false;
+    private Rigidbody paperRigidbody;
+
+    void Start(){
+
+        if (Paper != null){
+
+            paperRigidbody = Paper.GetComponent<Rigidbody>();
         }
     }
 
-    public void LeftDownCorner()
-    {
+    void Update(){
+
+        if (isPlaced)
+            return;
+
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hitInfo, 5000, paperLayer)){
+
+            if (hitInfo.collider != null){
+
+                Debug.Log("Hit Something : " + hitInfo.transform.name);
+
+                if (Input.GetMouseButtonDown(0)){
+
+                    if (!isHoldingPaper){
+
+                        LeftDownCorner();
+                        isHoldingPaper = true;
+
+                    }else{
+
+                        PlacePaper();
+                        isHoldingPaper = false;
+                        isPlaced = true;
+                    }
+                }
+            }
+        }
+
+        if (isHoldingPaper && Input.GetKeyDown(KeyCode.A)){
+            DropPaper(); 
+        }
+    }
+
+    public void LeftDownCorner(){
+
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        Debug.DrawRay(worldPos, new Vector3(0, 0, 1) * 50000, Color.red);
-        if (Physics.Raycast(worldPos, Camera.main.transform.rotation.eulerAngles, out RaycastHit hit, 50000, paperLayer)){
+        if (CamGrabPoint != null){
 
-            Debug.Log("hello");
+            Paper.transform.SetParent(CamGrabPoint.transform);
+            Paper.transform.DOLocalMove(Vector3.zero, grabDuration);
 
-            /*if(CamGrabPoint != null)
-            {
-                Paper.transform.SetParent(CamGrabPoint!.transform);
-                Paper.transform.DOLocalMove(new Vector3(0, 0, 0), grabDuration);
-            }*/
+            if (paperRigidbody != null){
+
+                paperRigidbody.isKinematic = true;
+            }
+
         }else{
             return;
+        }
+    }
+
+    private void PlacePaper(){
+
+        if (targetPosition != null){
+
+            Paper.transform.SetParent(null);
+            Paper.transform.DOMove(targetPosition.position, grabDuration);
+
+        }else{
+
+            Debug.LogWarning("Target position pas mis !");
+        }
+    }
+
+    private void DropPaper(){
+
+        isHoldingPaper = false;
+        Paper.transform.SetParent(null);
+
+        if (paperRigidbody != null){
+
+            paperRigidbody.isKinematic = false;
+            paperRigidbody.useGravity = true;
+
+            Vector3 throwDirection = (Camera.main.transform.forward + Vector3.up * 0.5f).normalized;
+            paperRigidbody.AddForce(throwDirection * throwForce, ForceMode.Impulse);
         }
     }
 }

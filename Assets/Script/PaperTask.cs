@@ -66,14 +66,17 @@ public class PaperTask : Task, IInteractible
 
     public void PaperStamped()
     {
+        if(!currentPaper)
+            return;
+
         GameObject feuille = currentPaper.gameObject;
         currentPaper = null;
 
         // Move paper to stach
         Sequence stamped = DOTween.Sequence();
-        stamped.Append(stampObject.transform.DOJump(deskPos.position, 0.5f, 1, 0.4f));
-        stamped.Append(stampObject.transform.DOLocalJump(Vector3.zero, 0.5f, 1, 0.4f));
-        stamped.Append(feuille.transform.DOJump(deskPos.position, 0.7f, 1, 0.8f));
+        stamped.Append(stampObject.transform.DOJump(deskPos.position, 0.3f, 1, 0.2f));
+        stamped.Append(stampObject.transform.DOLocalJump(Vector3.zero, 0.07f, 1, 0.2f));
+        stamped.Append(feuille.transform.DOJump(folderTrail.position, 0.2f, 1, 0.5f));
         stamped.AppendCallback(() => Destroy(feuille));
     }
 }

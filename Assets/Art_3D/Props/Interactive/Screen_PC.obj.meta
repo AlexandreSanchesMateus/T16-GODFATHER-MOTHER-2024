@@ -8,7 +8,8 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Plastic_PC.001
-    second: {fileID: 2100000, guid: aa04ff2230d4ba24283acd6398b03c87, type: 2}
+    second: {fileID: 3246602899955548493, guid: 0f778f2231755d740940456daa5ce872,
+      type: 3}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

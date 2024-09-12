@@ -16,9 +16,9 @@ public class Mail : MonoBehaviour
     [SerializeField, BoxGroup("Init")]
     private TextMeshProUGUI nbLetterTxt;
 
-    [SerializeField, Foldout("Déco")]
+    [SerializeField, Foldout("Dï¿½co")]
     private List<string> destinationNames = new List<string>();
-    [SerializeField, Foldout("Déco")]
+    [SerializeField, Foldout("Dï¿½co")]
     private List<string> subjectNames = new List<string>();
 
     private int targetLetterNb;

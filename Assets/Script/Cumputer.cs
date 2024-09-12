@@ -63,7 +63,7 @@ public class Cumputer : Task
             // Remove Popup
             // Debug.Log("Remove Popup");
             popupScript.CloseOnePopup();
-        }
+        }        
         else if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
             // Enter for mail

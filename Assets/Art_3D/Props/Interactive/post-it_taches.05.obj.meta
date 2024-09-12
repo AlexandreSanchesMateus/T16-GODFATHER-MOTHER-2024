@@ -13,7 +13,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: post-it_taches_txt.05
-    second: {fileID: 2100000, guid: 9ac5c52b3b3bff84c977ac9f2ee0efdd, type: 2}
+    second: {fileID: 2100000, guid: 352d0398b5a43874285dc1aed5280715, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

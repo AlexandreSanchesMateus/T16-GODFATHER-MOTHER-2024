@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Folder_Holder_full.02
-    second: {fileID: 2100000, guid: 8bb308a0d2051424492266d7f52c8d31, type: 2}
+    second: {fileID: 2100000, guid: ae42cddb1101f8840bedce591e6bd1f5, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

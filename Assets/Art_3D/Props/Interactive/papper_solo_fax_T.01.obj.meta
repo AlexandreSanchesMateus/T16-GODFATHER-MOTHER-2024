@@ -8,12 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: base_paper.01
-    second: {fileID: 2100000, guid: ca58fd20523aae64b8c560fa109eceae, type: 2}
+    second: {fileID: 2100000, guid: a2dc7dd98171f45439e51c4964509bac, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: papper_solo_fax_F.01
-    second: {fileID: 2100000, guid: bb343697914b9de4487a8f21541106d0, type: 2}
+    second: {fileID: 2100000, guid: a132a02bd7abf674ea862aa2f5860949, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

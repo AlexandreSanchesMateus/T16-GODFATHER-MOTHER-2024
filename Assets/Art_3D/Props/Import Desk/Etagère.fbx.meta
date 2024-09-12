@@ -3,7 +3,12 @@ guid: 17f0d86b50d731f4ea0c604394453ad8
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "Etag\xE8re bois"
+    second: {fileID: 2100000, guid: 4c4470e2ccd02484b84146f0c51c32bf, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -43,8 +43,11 @@ public class Mail : MonoBehaviour
 
     public void BackSpace() 
     {
-        corpTxt.text = corpTxt.text.Remove(corpTxt.text.Length - 1);
-        nbLetterTxt.text = corpTxt.text.Length + "/ " + targetLetterNb;
+        if (corpTxt.text.Length > 0)
+        {
+            corpTxt.text = corpTxt.text.Remove(corpTxt.text.Length - 1);
+            nbLetterTxt.text = corpTxt.text.Length + "/ " + targetLetterNb;
+        }
     }
 
     public bool Send()

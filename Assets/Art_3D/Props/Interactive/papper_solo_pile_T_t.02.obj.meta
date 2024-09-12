@@ -13,7 +13,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: paper_text_pile_T
-    second: {fileID: 2100000, guid: 4768d92e5d3f1e54fb0030007f4807a2, type: 2}
+    second: {fileID: 2100000, guid: e058f708076745748b9dac48bf6dfc98, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -8,6 +8,7 @@ using NaughtyAttributes;
 public class CamRotationManager : MonoBehaviour
 {
     private ECamRotState mCurrentState = ECamRotState.MIDDLE;
+    public ECamRotState CamState { get {  return mCurrentState; } }
     private ECamRotState mLastState = ECamRotState.MIDDLE;
     private int mcurrentRotation = 0;
 
@@ -17,13 +18,17 @@ public class CamRotationManager : MonoBehaviour
     private float turnDuration = 1f;
 
     [SerializeField, Foldout("Events")]
+    private UnityEvent<ECamRotState> OnStateChange;
+    public event UnityAction<ECamRotState> onStateChange { add => OnStateChange.AddListener(value); remove => OnStateChange.RemoveListener(value); }
+
+    [SerializeField, Foldout("Events")]
     private UnityEvent OnLeftState;
     [SerializeField, Foldout("Events")]
     private UnityEvent OnMiddleState;
     [SerializeField, Foldout("Events")]
     private UnityEvent OnRightState;
 
-    enum ECamRotState
+    public enum ECamRotState
     {
         LEFT = 0,
         MIDDLE = 1,
@@ -74,6 +79,8 @@ public class CamRotationManager : MonoBehaviour
 
         // ReInit
         mLastState = mCurrentState;
+
+        OnStateChange?.Invoke(mCurrentState);
 
         // Unity Events
         switch (mCurrentState)

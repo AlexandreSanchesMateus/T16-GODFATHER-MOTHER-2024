@@ -5,17 +5,12 @@ using UnityEngine;
 
 public class TaskRegister : MonoBehaviour
 {
-    [SerializeField]
+    [SerializeField, Required]
     private SCO_Tasks SCO_Ref;
+    [SerializeField]
+    private List<Task> Tasks = new List<Task>();
 
-    [SerializeField, Foldout("Tasks")]
-    private List<Task> leftTasks = new List<Task>();
-    [SerializeField, Foldout("Tasks")]
-    private List<Task> middleTasks = new List<Task>();
-    [SerializeField, Foldout("Tasks")]
-    private List<Task> rightTasks = new List<Task>();
-
-    void Start()
+    void Awake()
     {
         if (!SCO_Ref)
         {
@@ -23,7 +18,7 @@ public class TaskRegister : MonoBehaviour
             return;
         }
 
-        SCO_Ref.SetRegister(leftTasks, middleTasks, rightTasks);
+        SCO_Ref.SetRegister(Tasks);
         Debug.Log("TaskRegister - OK");
     }
 }

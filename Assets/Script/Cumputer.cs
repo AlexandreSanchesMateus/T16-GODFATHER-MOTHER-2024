@@ -36,7 +36,11 @@ public class Cumputer : Task
         if(mailTimer <= 0f)
         {
             mailTimer = mailReceivedFrequency + Random.Range(-mailReceivedRandomness, mailReceivedRandomness);
-            mailScript.CreateNewMail();
+            if (mailScript.CreateNewMail())
+            {
+                _onTaskRecived?.Invoke(this);
+                HaveTask = true;
+            }
         }
         else
             mailTimer -= Time.deltaTime;
@@ -64,7 +68,11 @@ public class Cumputer : Task
         {
             // Enter for mail
             // Debug.Log("Enter");
-            mailScript.SendMail();
+            if (mailScript.SendMail() && mailScript.MailNumber <= 0)
+            {
+                _onTaskFinished?.Invoke(this);
+                HaveTask = false;
+            }
         }
         else if (Input.anyKey)
         {

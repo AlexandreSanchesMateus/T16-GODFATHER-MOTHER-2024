@@ -308,7 +308,7 @@ MonoBehaviour:
     type: 3}
   mailNotification: {fileID: 603609216428838872}
   notifTxt: {fileID: 9191992950437857526}
-  backspaceFrk: 0.05
+  backspaceFrk: 0.08
   MaxStackableMail: 3
   minLetterRequested: 20
   maxLetterRequested: 120
@@ -484,7 +484,7 @@ MonoBehaviour:
   randomness: 4
   minPopupInterval: 0.1
   maxPopupInterval: 0.5
-  spawnRadius: 670
+  spawnRadius: 550
   OnPopupAppear:
     m_PersistentCalls:
       m_Calls: []
@@ -558,7 +558,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9b29cccc63060344f8f5f51c2a89e078, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7ad1aefe6b376f24aa8fc997f19dafee, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

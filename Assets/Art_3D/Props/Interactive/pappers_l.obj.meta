@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: base_paper.01
-    second: {fileID: 2100000, guid: 4ab8977de37bb9a45b386b64747e5db7, type: 2}
+    second: {fileID: 2100000, guid: a2dc7dd98171f45439e51c4964509bac, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

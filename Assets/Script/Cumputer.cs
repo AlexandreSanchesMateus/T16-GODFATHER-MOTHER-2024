@@ -73,6 +73,8 @@ public class Cumputer : Task
                 _onTaskFinished?.Invoke(this);
                 HaveTask = false;
             }
+            else
+                _onTaskFailed?.Invoke(this);
         }
         else if (Input.anyKey)
         {

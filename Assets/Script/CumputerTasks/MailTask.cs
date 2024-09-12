@@ -12,6 +12,7 @@ public class MailTask : MonoBehaviour
     private Mail _currentMail = null;
 
     bool _canRemove = true;
+    public int MailNumber { get {  return _mails.Count; } }
 
     [SerializeField, BoxGroup("Init")]
     private GameObject mailPrefab;
@@ -42,11 +43,11 @@ public class MailTask : MonoBehaviour
     private UnityEvent OnRevertMail;
 
 
-    public void CreateNewMail()
+    public bool CreateNewMail()
     {
         // Faire un mail
         if (_mails.Count >= MaxStackableMail)
-            return;
+            return false;
 
         Mail mail = Instantiate(mailPrefab, transform).GetComponent<Mail>();
         mail.InitMail(Random.Range(minLetterRequested, maxLetterRequested));
@@ -67,6 +68,7 @@ public class MailTask : MonoBehaviour
         notifTxt.text = _mails.Count.ToString();
 
         OnMailArrive?.Invoke();
+        return true;
     }
     
     public void SendNewKeystrok(string str)
@@ -87,8 +89,6 @@ public class MailTask : MonoBehaviour
         // Effacer avec une fréquence
         if (_canRemove)
         {
-            Debug.Log("BITE");
-
             _currentMail.BackSpace();
 
             _canRemove = false;
@@ -98,13 +98,13 @@ public class MailTask : MonoBehaviour
         }
     }
 
-    public void SendMail()
+    public bool SendMail()
     {
         // Envoyer le mail
         // Vérifier taille !
 
         if(_currentMail == null)
-            return;
+            return false;
 
         if (_currentMail.Send())
         {
@@ -121,9 +121,12 @@ public class MailTask : MonoBehaviour
                 _currentMail = _mails.Peek();
                 notifTxt.text = _mails.Count.ToString();
             }
+            return true;
         }
         else
             OnMailSendBad?.Invoke();
+
+        return false;
     }
 
     IEnumerator WaitToRemove()

@@ -5,14 +5,33 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SCO_Tasks", menuName = "ScriptableObjects/SCO_Tasks", order = 1)]
 public class SCO_Tasks : ScriptableObject
 {
-    public List<Task> LeftTasks { get; private set; }
-    public List<Task> MiddleTasks { get; private set; }
-    public List<Task> RightTasks { get; private set; }
+    public List<Task> AllTasks { get; private set; }
 
-    public void SetRegister(List<Task> leftTasks, List<Task> middleTasks, List<Task> rightTasks)
+
+    public List<Task> LeftTasks { get; private set; }
+    public List<Task> RightTasks { get; private set; }
+    public List<Task> MiddleTasks { get; private set; }
+
+    public void SetRegister(List<Task> listTasks)
     {
-        LeftTasks = leftTasks;
-        MiddleTasks = middleTasks;
-        RightTasks = rightTasks;
+        AllTasks = listTasks;
+
+        foreach (Task task in AllTasks)
+        {
+            switch (task.CamRotState)
+            {
+                case CamRotationManager.ECamRotState.LEFT:
+                    LeftTasks.Add(task);
+                    break;
+
+                case CamRotationManager.ECamRotState.MIDDLE:
+                    MiddleTasks.Add(task);
+                    break;
+
+                case CamRotationManager.ECamRotState.RIGHT:
+                    RightTasks.Add(task);
+                    break;
+            }
+        }
     }
 }

@@ -31,20 +31,21 @@ public class PopupTask : MonoBehaviour
     [SerializeField, Foldout("Events")]
     private UnityEvent OnPopupClose;
 
-    public void CreateNewPopups()
+    public bool CreateNewPopups()
     {
         if (popupPrefab == null)
-            return;
+            return false;
 
         // Create
         int nb = nbPopupToAppear + Random.Range(-randomness, randomness);
         nb = Mathf.Min(maxStackblePopups - _popups.Count, nb);
 
         if (nb == 0)
-            return;
+            return false;
 
         StopAllCoroutines();
         StartCoroutine(SpawnPopup(nb));
+        return true;
     }
 
     public void CloseOnePopup()

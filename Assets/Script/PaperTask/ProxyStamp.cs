@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Proxy : MonoBehaviour, IInteractible
+public class ProxyStamp : MonoBehaviour, IInteractible
 {
     [SerializeField, Required]
     private PaperTask taskRef;

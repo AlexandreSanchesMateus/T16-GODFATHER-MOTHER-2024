@@ -7,7 +7,7 @@ using UnityEngine;
 public class PaperTask : Task, IInteractible
 {
     Stack<Paper> _papers = new Stack<Paper>();
-    Paper currentPaper = null;
+    GameObject currentPaper = null;
 
     [SerializeField, BoxGroup("Init")]
     private GameObject paperPrefab;
@@ -27,6 +27,8 @@ public class PaperTask : Task, IInteractible
 
     private float paperTimer;
 
+    public Transform DeskPos { get {  return deskPos; } }
+
     private void Start()
     {
         paperTimer = paperReceivedFrequency + Random.Range(-paperReceivedRandomness, paperReceivedRandomness);
@@ -40,8 +42,8 @@ public class PaperTask : Task, IInteractible
             // Create new paper
             if (_papers.Count < maxStackablePapaer)
             {
-                // Crer
                 Paper paper = Instantiate(paperPrefab, transform.position + new Vector3(0, 0.6f, 0), Quaternion.Euler(new Vector3(0, Random.Range(-20, 20), 0)), null).GetComponent<Paper>();
+                paper.SetRef(this);
                 _papers.Push(paper);
                 _onTaskRecived?.Invoke(this);
                 HaveTask = true;
@@ -54,23 +56,50 @@ public class PaperTask : Task, IInteractible
     public void Interact()
     {
         // Prendre le premier feuille
-        if (_papers.Count <= 0 || currentPaper)
+        if (_papers.Count <= 0 || currentPaper != null)
             return;
 
         // Mettre sur le coté
         Paper paper = _papers.Pop();
         paper.Grab();
         paper.transform.DOJump(deskPos.position, 0.7f, 1, 0.8f);
-        currentPaper = paper;
+        SetObjectOnDesk(paper.gameObject);
+    }
+
+    public void SetObjectOnDesk(GameObject other)
+    {
+        if(other.GetComponent<IStampable>() == null)
+        {
+            Debug.LogWarning("SetObjectOnDesk : l'objet n'a pas l'interface IStampable");
+            return;
+        }
+
+        currentPaper = other;
+    }
+
+    public bool IsDeskUsed()
+    {
+        return currentPaper != null;
     }
 
     public void PaperStamped()
     {
-        if(!currentPaper)
+        if(currentPaper == null)
             return;
 
-        GameObject feuille = currentPaper.gameObject;
+        GameObject feuille = currentPaper;
         currentPaper = null;
+
+        if (feuille.TryGetComponent<IStampable>(out IStampable component))
+        {
+            if (component.Stamped())
+                _onTaskFinished?.Invoke(component.GetRef());
+            else
+                _onTaskFailed?.Invoke(component.GetRef());
+        }
+
+        if(_papers.Count <= 0)
+            HaveTask = false;
 
         // Move paper to stach
         Sequence stamped = DOTween.Sequence();

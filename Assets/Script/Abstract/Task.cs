@@ -32,6 +32,8 @@ public abstract class Task : MonoBehaviour
         IsActive = ActiveOnStart;
     }
 
+    [Button]
     public virtual void Activate() { IsActive = true; }
+    [Button]
     public virtual void Deactivate() { IsActive = false; }
 }

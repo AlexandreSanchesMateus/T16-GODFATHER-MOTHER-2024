@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5e8f9a79a2800ac498032c48ce43bdb5
+guid: b471badcc2baa4f40b82474337133a64
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,14 +7,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Plastic_PC.001
-    second: {fileID: 3246602899955548493, guid: 0f778f2231755d740940456daa5ce872,
-      type: 3}
+      name: Head_game_jam_lp
+    second: {fileID: 2100000, guid: a6ebe1ed1954afe44b0d270c5eb087e8, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Screen_PC_int
-    second: {fileID: 2100000, guid: 0211b5574213a024fa26a8405d744f7e, type: 2}
+      name: clothes_lp
+    second: {fileID: 2100000, guid: 6cef3c2339b11a94583a015276a30cc3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eye_brows_lp
+    second: {fileID: 2100000, guid: ab7ac072012176843b64cd0fa92b6d86, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eyes_lp
+    second: {fileID: 2100000, guid: 1f80702deba58cb4a98d780e3b93d27b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

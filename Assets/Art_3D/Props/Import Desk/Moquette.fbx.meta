@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5e8f9a79a2800ac498032c48ce43bdb5
+guid: 65b4c3564fe30984585b50e09c596a6b
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,14 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Plastic_PC.001
-    second: {fileID: 3246602899955548493, guid: 0f778f2231755d740940456daa5ce872,
-      type: 3}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Screen_PC_int
-    second: {fileID: 2100000, guid: 0211b5574213a024fa26a8405d744f7e, type: 2}
+      name: Moquette
+    second: {fileID: 2100000, guid: 1c01f260a6c6ec048a2743809a6c1b5e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

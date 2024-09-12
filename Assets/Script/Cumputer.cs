@@ -6,33 +6,71 @@ using UnityEngine;
 public class Cumputer : Task
 {
     [SerializeField, BoxGroup("Init")]
-    private Transform displayTrs;
-    [SerializeField, BoxGroup("Init")]
     private MailTask mailScript;
     [SerializeField, BoxGroup("Init")]
     private PopupTask popupScript;
-    // private GameObject Prefab;
+
+    [SerializeField, BoxGroup("Mail Settings")]
+    private float mailReceivedFrequency = 10f;
+    [SerializeField, BoxGroup("Mail Settings")]
+    private float mailReceivedRandomness = 5f;
+
+    [SerializeField, BoxGroup("Popup Settings")]
+    private float popupFrequency = 20f;
+    [SerializeField, BoxGroup("Popup Settings")]
+    private float popupRandomness = 5f;
+
+    float mailTimer;
+    float popupTimer;
+
+    private void Start()
+    {
+        // start timers
+        mailTimer = mailReceivedFrequency + Random.Range(-mailReceivedRandomness, mailReceivedRandomness);        
+        popupTimer = popupFrequency + Random.Range(-popupRandomness, popupRandomness);
+    }
 
     void Update()
     {
+        // Timers
+        if(mailTimer <= 0f)
+        {
+            mailTimer = mailReceivedFrequency + Random.Range(-mailReceivedRandomness, mailReceivedRandomness);
+            mailScript.CreateNewMail();
+        }
+        else
+            mailTimer -= Time.deltaTime;
+
+        if(popupTimer <= 0f)
+        {
+            popupTimer = popupFrequency + Random.Range(-popupRandomness, popupRandomness);
+            popupScript.CreateNewPopups();
+        }
+        else
+            popupTimer -= Time.deltaTime;
+
+
+        // Inputs
         if (!IsActive)
             return;
 
-        if (Input.anyKeyDown)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (Input.GetKey(KeyCode.Escape))
+            // Remove Popup
+            // Debug.Log("Remove Popup");
+            popupScript.CloseOnePopup();
+        }
+        else if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+        {
+            // Enter for mail
+            // Debug.Log("Enter");
+            mailScript.SendMail();
+        }
+        else if (Input.anyKey)
+        {
+            if (Input.GetKey(KeyCode.Backspace))
             {
-                // Remove Popup
-            }
-            else if(Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
-            {
-                // Enter for mail
-                Debug.Log("Enter");
-                mailScript.SendMail();
-            }
-            else if (Input.GetKeyDown(KeyCode.Return))
-            {
-                Debug.Log("Back");
+                // Debug.Log("Back");
                 mailScript.RemoveLastKeystrok();
             }
             else

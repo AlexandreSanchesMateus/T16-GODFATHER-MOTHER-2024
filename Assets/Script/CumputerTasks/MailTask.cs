@@ -89,8 +89,6 @@ public class MailTask : MonoBehaviour
         // Effacer avec une fréquence
         if (_canRemove)
         {
-            Debug.Log("BITE");
-
             _currentMail.BackSpace();
 
             _canRemove = false;

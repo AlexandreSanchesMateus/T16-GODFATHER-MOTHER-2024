@@ -3,7 +3,17 @@ guid: b5c6611707355de49b894c1b837976cf
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: post-it_taches.01
+    second: {fileID: 2100000, guid: 0c21fe6fa7349f5478a7c1c805ea5d19, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: post-it_taches_txt.01
+    second: {fileID: 2100000, guid: 352d0398b5a43874285dc1aed5280715, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

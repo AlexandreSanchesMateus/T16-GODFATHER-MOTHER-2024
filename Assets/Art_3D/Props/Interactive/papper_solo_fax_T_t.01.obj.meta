@@ -3,7 +3,17 @@ guid: 89e32a59a228fda49838dcbc9995105a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: base_paper.01
+    second: {fileID: 2100000, guid: 95a324805d727b3409096f0de3dfa417, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: papper_solo_fax_F.01
+    second: {fileID: 2100000, guid: b544521e313482642938088d88e108c6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

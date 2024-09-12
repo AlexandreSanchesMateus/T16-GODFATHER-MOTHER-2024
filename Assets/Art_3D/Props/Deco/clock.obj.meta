@@ -3,7 +3,17 @@ guid: 82a8ac5f47d541a4ab3aecfbf4d188bd
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plastic_clock
+    second: {fileID: 2100000, guid: 8d9e6c31ce37f3b47badff2f87c91d87, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plastic_clock_flat
+    second: {fileID: 2100000, guid: c495c89681f2ed840b4a256e04cb3afa, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

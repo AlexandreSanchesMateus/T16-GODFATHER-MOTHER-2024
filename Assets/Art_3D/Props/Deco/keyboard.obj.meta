@@ -3,7 +3,17 @@ guid: 05c9920205311bb4590e001512191ac4
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pc_black
+    second: {fileID: 2100000, guid: f574009b5e6ad0f499fd3ac0d5b036ee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plastic_key
+    second: {fileID: 2100000, guid: d88cab713fe67c746ac45d149f2d7d86, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

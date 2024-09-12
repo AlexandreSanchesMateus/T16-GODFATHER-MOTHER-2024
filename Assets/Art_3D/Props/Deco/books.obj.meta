@@ -3,7 +3,32 @@ guid: de50eaf0c7080ae4c83e0094f77aebbc
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: books_01
+    second: {fileID: 2100000, guid: 74443bfe9fdad424ba5c10dab5b1e5a2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: books_02
+    second: {fileID: 2100000, guid: 343401a02d1d16d4b957fec91aa3586e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: books_03
+    second: {fileID: 2100000, guid: 8da22ed0dee0d264bba6f06958a297b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: books_cover
+    second: {fileID: 2100000, guid: 3d623cc570eeb9440a6bfbbdca5acc30, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: books_paper
+    second: {fileID: 2100000, guid: af1d7cdc77a869f449f903954ce0c294, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

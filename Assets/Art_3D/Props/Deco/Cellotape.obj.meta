@@ -3,7 +3,17 @@ guid: 55a7c1f0665bf3f44aebbac4440b4631
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cellotape_color
+    second: {fileID: 2100000, guid: dec7f2156570b184f8cedecc118a0eee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cellotape_plastic
+    second: {fileID: 2100000, guid: 09b76f12fc3fef1439ef616033b34ec0, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

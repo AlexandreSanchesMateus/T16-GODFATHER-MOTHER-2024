@@ -48,6 +48,8 @@ public class PaperTask : Task, IInteractible
                 _onTaskRecived?.Invoke(this);
                 HaveTask = true;
             }
+            else
+                _onTaskFailed?.Invoke(this);
         }
         else
             paperTimer -= Time.deltaTime;

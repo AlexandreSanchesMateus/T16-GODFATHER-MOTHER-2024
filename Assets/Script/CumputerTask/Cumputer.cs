@@ -41,6 +41,8 @@ public class Cumputer : Task
                 _onTaskRecived?.Invoke(this);
                 HaveTask = true;
             }
+            else
+                _onTaskFailed?.Invoke(this);
         }
         else
             mailTimer -= Time.deltaTime;

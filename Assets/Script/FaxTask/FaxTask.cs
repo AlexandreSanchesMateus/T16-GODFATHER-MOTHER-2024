@@ -56,6 +56,8 @@ public class FaxTask : Task, IInteractible
                 _onTaskRecived?.Invoke(this);
                 HaveTask = true;
             }
+            else
+                _onTaskFailed?.Invoke(this);
         }
         else
             faxTimer -= Time.deltaTime;

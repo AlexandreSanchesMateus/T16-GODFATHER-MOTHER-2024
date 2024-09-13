@@ -3,6 +3,7 @@ using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class FaxTask : Task, IInteractible
 {
@@ -24,6 +25,13 @@ public class FaxTask : Task, IInteractible
     private float faxReceivedFrequency = 10f;
     [SerializeField, BoxGroup("Paper Settings")]
     private float faxReceivedRandomness = 5f;
+
+    [SerializeField, Foldout("Events")]
+    private UnityEvent onFaxGrab;
+    [SerializeField, Foldout("Events")]
+    private UnityEvent OnFaxRelease;
+    [SerializeField, Foldout("Events")]
+    private UnityEvent OnFaxThrowAway;
 
     private float faxTimer;
 
@@ -61,6 +69,8 @@ public class FaxTask : Task, IInteractible
         if (currentFax == null)
             HaveTask = false;
 
+        onFaxGrab?.Invoke();
+
         // Récupérer le fax
         currentFax.transform.SetParent(grabPos);
         currentFax.transform.DOLocalMove(Vector3.zero, 0.4f);
@@ -73,6 +83,8 @@ public class FaxTask : Task, IInteractible
     {
         if (!faxInHand || paperTask.IsDeskUsed())
             return;
+
+        OnFaxRelease?.Invoke();
 
         // Move
         faxInHand.DOKill();
@@ -92,6 +104,8 @@ public class FaxTask : Task, IInteractible
             _onTaskFailed?.Invoke(this);
         else
             _onTaskFinished?.Invoke(this);
+
+        OnFaxThrowAway?.Invoke();
 
         faxInHand.transform.SetParent(null);
         GameObject fax = faxInHand.gameObject;

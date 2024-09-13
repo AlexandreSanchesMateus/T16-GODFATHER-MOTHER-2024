@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,11 +16,16 @@ public class GameManager : MonoBehaviour
     [SerializeField, BoxGroup("Init")]
     private TextMeshProUGUI moneyEarnedTxt;
 
+    [SerializeField, BoxGroup("Scene Reload Settings")]
+    private float holdDuration;
+
     [SerializeField]
     private List<Palier> stages = new List<Palier>();
 
     public static int CurrentScore {  get; private set; } = 0;
     public static int NbTaskFail { get; private set; } = 0;
+
+    private float currentHoldTime = 0f;
 
 
     private void Start()
@@ -31,10 +37,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    /*private void Update()
+    private void Update()
     {
-        
-    }*/
+        if (Input.GetKey(KeyCode.Keypad0))
+        {
+            currentHoldTime += Time.deltaTime;
+
+            if(currentHoldTime >= holdDuration)
+            {
+                // Charger la scène
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
+        }
+        else if(Input.GetKeyUp(KeyCode.Keypad0))
+        {
+            currentHoldTime = 0f;
+        }
+    }
 
     private void TaskFinished(Task other)
     {

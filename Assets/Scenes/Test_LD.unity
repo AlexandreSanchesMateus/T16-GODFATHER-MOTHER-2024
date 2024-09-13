@@ -1150,7 +1150,7 @@ MonoBehaviour:
       m_Calls: []
   mailScript: {fileID: 1005834933}
   popupScript: {fileID: 1005834932}
-  mailReceivedFrequency: 10
+  mailReceivedFrequency: 15
   mailReceivedRandomness: 5
   popupFrequency: 20
   popupRandomness: 5
@@ -8720,7 +8720,7 @@ PrefabInstance:
     - target: {fileID: 4799131378126310123, guid: 7c0e35bec8fefbf47b43b78580a2134b,
         type: 3}
       propertyPath: faxReceivedFrequency
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4799131378126310123, guid: 7c0e35bec8fefbf47b43b78580a2134b,
         type: 3}
@@ -9580,6 +9580,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421767354466199308, guid: 6ffc4e2ae716d3b4da8dace9b75d3634,
+        type: 3}
+      propertyPath: paperReceivedFrequency
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7421767354466199308, guid: 6ffc4e2ae716d3b4da8dace9b75d3634,
         type: 3}

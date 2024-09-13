@@ -91,18 +91,4 @@ public class Cumputer : Task
             }
         }
     }
-
-    [Button]
-    public override void Activate()
-    {
-        base.Activate();
-        //throw new System.NotImplementedException();
-    }
-
-    [Button]
-    public override void Deactivate()
-    {
-        base.Deactivate();
-        //throw new System.NotImplementedException();
-    }
 }

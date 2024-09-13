@@ -13,7 +13,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Folder_Holder_full.02
-    second: {fileID: 2100000, guid: 6e0e266f6dfcb04468e406233ade0ba7, type: 2}
+    second: {fileID: 2100000, guid: ae42cddb1101f8840bedce591e6bd1f5, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
 
     private float currentHoldTime = 0f;
 
+    private bool loadingScene = false;
 
     private void Start()
     {
@@ -39,6 +40,9 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if (loadingScene)
+            return;
+
         if (Input.GetKey(KeyCode.Keypad0))
         {
             currentHoldTime += Time.deltaTime;
@@ -47,6 +51,7 @@ public class GameManager : MonoBehaviour
             {
                 // Charger la scène
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                loadingScene = true;
             }
         }
         else if(Input.GetKeyUp(KeyCode.Keypad0))

@@ -5037,6 +5037,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6731380476211687267, guid: 27cd79e979d11b845a4e2d2f3d0ecacd,
         type: 3}
+      propertyPath: maxLetterRequested
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731380476211687267, guid: 27cd79e979d11b845a4e2d2f3d0ecacd,
+        type: 3}
+      propertyPath: minLetterRequested
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731380476211687267, guid: 27cd79e979d11b845a4e2d2f3d0ecacd,
+        type: 3}
       propertyPath: OnMailArrive.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}

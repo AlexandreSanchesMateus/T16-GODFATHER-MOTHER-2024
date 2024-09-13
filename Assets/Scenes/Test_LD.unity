@@ -2372,7 +2372,7 @@ PrefabInstance:
         type: 3}
       propertyPath: camRotationManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 972472545}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3389,6 +3389,11 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 5e8f9a79a2800ac498032c48ce43bdb5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bfbeeae5fa0ff944f9c116c2b7207530, type: 2}
     - target: {fileID: 919132149155446097, guid: 5e8f9a79a2800ac498032c48ce43bdb5,
         type: 3}
       propertyPath: m_Name
@@ -3408,6 +3413,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.095
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 5e8f9a79a2800ac498032c48ce43bdb5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4425,7 +4435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b8aed10c6761194d9d9c5d6e449e923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SCO_Ref: {fileID: 0}
+  SCO_Ref: {fileID: 11400000, guid: 75622c6568985ca40b4623e4f085535b, type: 2}
   turnDuration: 1
   OnStateChange:
     m_PersistentCalls:

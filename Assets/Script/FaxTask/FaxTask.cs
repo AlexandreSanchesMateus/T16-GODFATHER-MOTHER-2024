@@ -11,6 +11,8 @@ public class FaxTask : Task, IInteractible
     [SerializeField, BoxGroup("Init")]
     private Transform grabPos;
     [SerializeField, BoxGroup("Init")]
+    private Transform binPos;
+    [SerializeField, BoxGroup("Init")]
     private PaperTask paperTask;
     [SerializeField, BoxGroup("Init")]
     private List<GameObject> faxPrefabs = new List<GameObject>();
@@ -56,6 +58,9 @@ public class FaxTask : Task, IInteractible
         if (!currentFax || faxInHand)
             return;
 
+        if (currentFax == null)
+            HaveTask = false;
+
         // Récupérer le fax
         currentFax.transform.SetParent(grabPos);
         currentFax.transform.DOLocalMove(Vector3.zero, 0.4f);
@@ -70,6 +75,7 @@ public class FaxTask : Task, IInteractible
             return;
 
         // Move
+        faxInHand.DOKill();
         faxInHand.transform.SetParent(null);
         faxInHand.transform.DOMove(paperTask.DeskPos.position, 0.4f);
         faxInHand.transform.DORotate(new Vector3(0, -90, 0), 0.4f);
@@ -79,7 +85,19 @@ public class FaxTask : Task, IInteractible
 
     public void PutFaxInBin()
     {
+        if (!faxInHand)
+            return;
 
+        if (faxInHand.IsApprouved)
+            _onTaskFailed?.Invoke(this);
+        else
+            _onTaskFinished?.Invoke(this);
+
+        faxInHand.transform.SetParent(null);
+        GameObject fax = faxInHand.gameObject;
+        Sequence throwAway = DOTween.Sequence();
+        throwAway.Append(fax.transform.DOJump(binPos.position, 0.3f, 1, 0.2f));
+        throwAway.AppendCallback(() => Destroy(fax));
 
         faxInHand = null;
     }

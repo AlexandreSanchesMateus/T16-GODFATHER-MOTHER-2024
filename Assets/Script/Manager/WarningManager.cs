@@ -70,7 +70,12 @@ public class WarningManager : MonoBehaviour
     private void BlinkRight()
     {
         if (RightBlinkSequence != null)
-            RightBlinkSequence.Restart();
+        {
+            if(RightBlinkSequence.IsPlaying())
+                RightBlinkSequence.Restart();
+            else
+                RightBlinkSequence.Play();
+        }
         else
         {
             RightBlinkSequence = DOTween.Sequence();
@@ -89,7 +94,10 @@ public class WarningManager : MonoBehaviour
     private void BlinkLeft()
     {
         if (LeftBlinkSequence != null)
-            LeftBlinkSequence.Restart();
+            if (LeftBlinkSequence.IsPlaying())
+                LeftBlinkSequence.Restart();
+            else
+                LeftBlinkSequence.Play();
         else
         {
             LeftBlinkSequence = DOTween.Sequence();

@@ -62,7 +62,7 @@ public class PaperTask : Task, IInteractible
         // Mettre sur le coté
         Paper paper = _papers.Pop();
         paper.Grab();
-        paper.transform.DOJump(deskPos.position, 0.7f, 1, 0.8f);
+        paper.transform.DOJump(deskPos.position, 0.7f, 1, 0.4f);
         SetObjectOnDesk(paper.gameObject);
     }
 

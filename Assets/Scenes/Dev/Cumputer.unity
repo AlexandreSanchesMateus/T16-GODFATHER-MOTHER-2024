@@ -519,6 +519,7 @@ Transform:
   - {fileID: 437497169}
   - {fileID: 1858246111}
   - {fileID: 1605727569}
+  - {fileID: 929719542}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &699622470
@@ -568,6 +569,7 @@ MonoBehaviour:
       m_Calls: []
   faxExit: {fileID: 1605727569}
   grabPos: {fileID: 167483696}
+  binPos: {fileID: 929719542}
   paperTask: {fileID: 155424320}
   faxPrefabs:
   - {fileID: 8563594879951556046, guid: e008b542b51e2fd44889cc2890842a48, type: 3}
@@ -693,6 +695,8 @@ MonoBehaviour:
   SCO_Ref: {fileID: 11400000, guid: 75622c6568985ca40b4623e4f085535b, type: 2}
   Tasks:
   - {fileID: 762100525}
+  - {fileID: 699622471}
+  - {fileID: 155424320}
 --- !u!4 &735182335
 Transform:
   m_ObjectHideFlags: 0
@@ -809,7 +813,7 @@ Transform:
   m_GameObject: {fileID: 762100520}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.8321009, z: -0.5546243, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 2.55}
+  m_LocalPosition: {x: 0, y: -9.07, z: 2.55}
   m_LocalScale: {x: 1.5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -845,6 +849,73 @@ MonoBehaviour:
   mailReceivedRandomness: 5
   popupFrequency: 20
   popupRandomness: 5
+--- !u!1 &929719541
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 929719542}
+  - component: {fileID: 929719543}
+  - component: {fileID: 929719544}
+  m_Layer: 8
+  m_Name: BinProxy
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &929719542
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929719541}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.155, y: 0.098, z: -1.352}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 699622469}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &929719543
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929719541}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5, y: 0.7, z: 0.5}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &929719544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929719541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dcefbde6c4f2a84e9a272c65f1692fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faxTask: {fileID: 699622471}
 --- !u!1 &1100392555
 GameObject:
   m_ObjectHideFlags: 0
@@ -1165,14 +1236,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1728571307}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 167483696}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1728571311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1433,7 +1504,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1920600337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1447,6 +1518,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SCO_Ref: {fileID: 11400000, guid: 75622c6568985ca40b4623e4f085535b, type: 2}
+  camRotationManager: {fileID: 0}
+  taskFailedTxt: {fileID: 0}
+  moneyEarnedTxt: {fileID: 0}
+  stages: []
 --- !u!4 &1920600338
 Transform:
   m_ObjectHideFlags: 0
@@ -1482,6 +1557,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5733414055402008620, guid: 6ffc4e2ae716d3b4da8dace9b75d3634,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000,
+        type: 0}
     - target: {fileID: 5733414055402008620, guid: 6ffc4e2ae716d3b4da8dace9b75d3634,
         type: 3}
       propertyPath: m_Name

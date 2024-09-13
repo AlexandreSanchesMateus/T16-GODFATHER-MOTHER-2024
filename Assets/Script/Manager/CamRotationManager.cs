@@ -28,6 +28,8 @@ public class CamRotationManager : MonoBehaviour
     [SerializeField, Foldout("Events")]
     private UnityEvent OnRightState;
 
+    public bool CanTriggerEvents { get; set; } = true;
+
     public enum ECamRotState
     {
         LEFT = 0,
@@ -56,7 +58,9 @@ public class CamRotationManager : MonoBehaviour
         mcurrentRotation = mcurrentRotation - 90;
         --mCurrentState;
         transform.DORotate(new Vector3(0, mcurrentRotation, 0), turnDuration);
-        TriggerEvents();
+
+        if(CanTriggerEvents)
+            TriggerEvents();
     }
 
     public void RotateCamRight()
@@ -67,7 +71,9 @@ public class CamRotationManager : MonoBehaviour
         mcurrentRotation = mcurrentRotation + 90;
         ++mCurrentState;
         transform.DORotate(new Vector3(0, mcurrentRotation, 0), turnDuration);
-        TriggerEvents();
+
+        if(CanTriggerEvents)
+            TriggerEvents();
     }
 
     private void TriggerEvents()

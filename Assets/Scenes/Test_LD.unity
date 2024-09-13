@@ -7001,6 +7001,16 @@ PrefabInstance:
       propertyPath: ActiveOnStart
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4799131378126310123, guid: 7c0e35bec8fefbf47b43b78580a2134b,
+        type: 3}
+      propertyPath: faxReceivedFrequency
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4799131378126310123, guid: 7c0e35bec8fefbf47b43b78580a2134b,
+        type: 3}
+      propertyPath: faxReceivedRandomness
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6989963002306939858, guid: 7c0e35bec8fefbf47b43b78580a2134b,
         type: 3}
       propertyPath: m_LocalPosition.x
